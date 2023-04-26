@@ -24,7 +24,7 @@ cat << EOF | sudo tee /tmp/nginx-proxy-manager/docker-compose.yaml
 version: "3"
 services:
   app:
-    image: 'jc21/nginx-proxy-manager:latest'
+    image: 'jc21/nginx-proxy-manager:2.9.15'
     restart: unless-stopped
     ports:
       # These ports are in format <host-port>:<container-port>
