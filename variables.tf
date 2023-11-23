@@ -2,19 +2,20 @@
 
 variable public_network_cidr {
   type    = string
-  default = "172.16.0.0/20"
+  default = "${PUBLIC_NETWORK_CIDR}"
 }
 
+# key
 variable "sshkey" {
   type = string
-  default = "hands-on"
+  default = "${USER_SSH_KEY_NAME}"
 }
 
 # default
 
 variable default_image {
   type    = string
-  default = "Ubuntu 20.04"
+  default = "Ubuntu 20.04 - 5.4.0-164"
 }
 
 variable "prefix" {
@@ -38,7 +39,7 @@ variable "mongodb_name" {
 
 variable mongodb_flavor {
   type    = string
-  default = "a1-4-std"
+  default = "m2a.xlarge"
   description = "4 vcpu, 16gb ram"
 }
 
