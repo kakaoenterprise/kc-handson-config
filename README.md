@@ -1,1 +1,1 @@
-# kic-handson-config
+# kc-handson-config
