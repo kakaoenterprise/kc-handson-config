@@ -1,6 +1,10 @@
+##### app lb
+
 resource "openstack_lb_loadbalancer_v2" "app_lb" {
     name = "${var.prefix}-${var.app_instance_name}-lb"
     vip_network_id = data.openstack_networking_network_v2.public_network.id
+    flavor_id = "94beb0cb-dc05-44d4-9ae0-e9785141a33e"
+    availability_zone = var.kc_availability_zone
 }
 
 resource "openstack_lb_pool_v2" "app_lb_pool" {
@@ -35,11 +39,13 @@ resource "openstack_lb_listener_v2" "app_lb_listener" {
     protocol_port   = 8080
 }
 
-###############
+####### web lb
 
 resource "openstack_lb_loadbalancer_v2" "web_lb" {
     name = "${var.prefix}-${var.web_instance_name}-lb"
     vip_network_id = data.openstack_networking_network_v2.public_network.id
+    flavor_id = "687c7076-7756-4906-9630-dd51abd6f1e7"
+    availability_zone = var.kc_availability_zone
 }
 
 resource "openstack_lb_pool_v2" "web_lb_pool" {
